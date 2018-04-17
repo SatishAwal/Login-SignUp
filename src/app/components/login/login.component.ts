@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
     password: ''
   };
   returnUrl:String;
-  loginErr: string = "";
-  success:boolean;
+  loginErr: string = "Incorrect Email/Password";
+  success:boolean=true;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -40,8 +40,10 @@ onSubmit(form:NgForm){
     this.authenticationService.login(this.user).subscribe(response=>{
         console.log("Response",response)
         if(response.success){
+          this.success=true
         this.router.navigate(['/home']);
        }else{
+         this.success=false
          form.reset();
        } 
     })
