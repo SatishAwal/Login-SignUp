@@ -16,4 +16,9 @@ export class UserListService {
       response.json()
     )
   }
+  delet(user){
+    return this.httpClient.delete(`${this.databaseUrl}/user._id`).map((response: Response) =>
+      response.json()
+    )
+  }
 }

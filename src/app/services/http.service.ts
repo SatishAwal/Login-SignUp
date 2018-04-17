@@ -47,4 +47,12 @@ export class HttpClient {
             headers: headers
         });
     }
+
+    delete(url) {
+        let headers = new Headers();
+        this.createHeader(headers);
+        return this.http.delete(url,{
+            headers: headers
+        });
+    }
 }

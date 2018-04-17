@@ -38,20 +38,20 @@
                   <td>
                     <a href="#">{{user.email}}</a>
                   </td>
-                  <td style="width: 20%;">
-                    <a href="#" class="table-link">
-                      <span class="fa-stack">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                    <a href="#" class="table-link danger">
-                      <span class="fa-stack">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </td>
+                <td>
+                  <button class="btn btn-primary" (click)="edited(user)">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span class="hidden-xs hidden-sm">Edit</span>
+                  </button>
+                </td>
+                
+                <td>
+                  <button class="btn btn-danger" (click)="removed(user)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span class="hidden-xs hidden-sm">Delete</span>
+                  </button>
+                </td>
+                  
                 </tr>
 
               </tbody>

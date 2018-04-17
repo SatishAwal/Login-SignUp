@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserListService} from "../../services/index";
+import { UserListService,HttpClient} from "../../services/index";
 
 @Component({
   selector: 'app-user-list',
@@ -9,7 +9,9 @@ import { UserListService} from "../../services/index";
 export class UserListComponent implements OnInit {
   userList:any;
   date=new Date().toLocaleDateString();
-  constructor(private userListService:UserListService) { }
+  constructor(private userListService:UserListService,
+  private httpClient:HttpClient
+  ) { }
 
   ngOnInit() {
     this.userListService.getUserList().subscribe((response)=>{
@@ -17,5 +19,7 @@ export class UserListComponent implements OnInit {
       console.log("Response: User",this.userList)
     })
   }
-
+removed(user){
+  this.userListService.delet(user).subscribe((response)=>console.log("Deleted User:",response))
+}
 }
