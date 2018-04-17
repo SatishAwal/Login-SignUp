@@ -7,6 +7,7 @@ export class AuthenticationService {
   private databaseUrl = "http://localhost:3000/users"
   public token:string;
   constructor(private http:Http) { }
+
 login(user){
   return this.http.post(`${this.databaseUrl}/login`,user).map((response:Response)=>{
     let token=response.json() && response.json().token;
@@ -27,6 +28,7 @@ signup(user){
     }
     response.json()})
 }
+
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('loggedInUser');
@@ -39,6 +41,7 @@ signup(user){
     let userId = decoded.payload.id;
     // store user details and jwt token in local storage to keep user logged in between page refreshes
     localStorage.setItem('loggedInUser', JSON.stringify({ token: token, user: decoded.payload }));
+  //  localStorage.setItem('loggedInUser', JSON.stringify({ token: token, user: decoded.payload }));
       //console.log(localStorage.getItem("loggedInUser"));
 }
 
