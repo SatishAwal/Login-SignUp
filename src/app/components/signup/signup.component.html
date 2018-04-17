@@ -19,12 +19,15 @@ placeholder="Last Name" [(ngModel)]="newUser.lastName" required autofocus>
 <input #email="ngModel" name="email" type="email" id="inputEmail" class="form-control" 
 placeholder="Email address" [(ngModel)]="newUser.email"
 required autofocus pattern=".+@.+">
+
 <p *ngIf="email.touched && email.invalid" class="alert alert-danger">Incorrect Email</p>
+
 <input #password="ngModel"  type="password" id="inputPassword" name="password" class="form-control"
 placeholder="Password" [(ngModel)]="newUser.password" required>
+
 <p *ngIf="password.touched && password.invalid" class="alert alert-danger">Password Strength Low</p>
 
-      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-disabled="form.$invalid">Sign up</button>
     </form>
     <!-- /form -->
     <!-- <a href="#" class="forgot-password">
