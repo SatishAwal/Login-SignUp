@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="card card-container">
+    <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+
+    <form class="form-signin" (submit)="onSubmit(form)" novalidate #form="ngForm">
+
+<span id="reauth-email" class="reauth-email"></span>
+
+<input #firstName="ngModel" name="firstName" type="text" id="inputfName" class="form-control" 
+placeholder="First Name" [(ngModel)]="newUser.firstName"
+required autofocus>
+
+<input #lastName="ngModel" name="lastName" type="text" id="inputlName" class="form-control" 
+placeholder="Last Name" [(ngModel)]="newUser.lastName" required autofocus>
+
+<input #email="ngModel" name="email" type="email" id="inputEmail" class="form-control" 
+placeholder="Email address" [(ngModel)]="newUser.email"
+required autofocus pattern=".+@.+">
+
+<input #password="ngModel"  type="password" id="inputPassword" name="password" class="form-control"
+placeholder="Password" [(ngModel)]="newUser.password" required>
+
+
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
+    </form>
+    <!-- /form -->
+    <!-- <a href="#" class="forgot-password">
+        Forgot the password?
+      </a> 
+      <p>{{loginErr}}</p>-->
+  </div>
+  <!-- /card-container -->
+</div>
+<!-- /container -->

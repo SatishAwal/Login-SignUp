@@ -1,3 +1,33 @@
-<h>
-  You Logged In.
-</h> 
+
+<p>You are in {{title}}</p>
+<button class="btn btn-danger" (click)="logoutClick()">Logout</button>
+<app-user-list></app-user-list>
+<!-- 
+<div class="panel panel-default">
+    <table class="table table-striped">
+        <tr>
+            <td>
+                <div class="card" style="width: 18rem;">
+                    <h5 class="card-title">AVC</h5>
+                    <p>asdfghjkl</p>
+                    <a href="#" target="_blank" class="btn btn-primary">QWERTYT</a>
+                </div>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="edited(bookmark)">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span class="hidden-xs hidden-sm">Edit</span>
+                </button>
+            </td>
+
+            <td>
+                <button class="btn btn-danger" (click)="removed(bookmark)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span class="hidden-xs hidden-sm">Delete</span>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+ -->
+<!-- (click)="onRemove(bookmark)" -->

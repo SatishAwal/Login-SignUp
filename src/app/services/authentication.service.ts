@@ -11,17 +11,35 @@ login(user){
   return this.http.post(`${this.databaseUrl}/login`,user).map((response:Response)=>{
     let token=response.json() && response.json().token;
     if(token){
-      this.token=token;
-      //Returns the decoded payload without verifying if the signature is valid.
-      var decoded = jwt.decode(token, { complete: true });
-      let userId = decoded.payload.id;
-      //console.log(decoded.payload);
-      // store user details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem('loggedInUser', JSON.stringify({ token: token, user: decoded.payload }));
-      //console.log(localStorage.getItem("loggedInUser"));
+     this.tokenStore(token)
       return response.json();
     }
+    return response.json();
   })
+}
+
+signup(user){
+  return this.http.post(`${this.databaseUrl}/signup`,user).map((response:Response)=>{
+    let token=response.json() && response.json().token;
+    if(token){
+      this.tokenStore(token)
+      return response.json();
+    }
+    response.json()})
+}
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('loggedInUser');
+  }
+  
+  tokenStore(token){
+    this.token = token;
+    //Returns the decoded payload without verifying if the signature is valid.
+    var decoded = jwt.decode(token, { complete: true });
+    let userId = decoded.payload.id;
+    // store user details and jwt token in local storage to keep user logged in between page refreshes
+    localStorage.setItem('loggedInUser', JSON.stringify({ token: token, user: decoded.payload }));
+      //console.log(localStorage.getItem("loggedInUser"));
 }
 
 }
