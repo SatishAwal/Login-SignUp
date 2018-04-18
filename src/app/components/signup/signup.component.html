@@ -13,21 +13,30 @@
 placeholder="First Name" [(ngModel)]="newUser.firstName"
 required autofocus>
 
+<div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+  FirstName is required
+</div>
+
 <input #lastName="ngModel" name="lastName" type="text" id="inputlName" class="form-control" 
 placeholder="Last Name" [(ngModel)]="newUser.lastName" required autofocus>
+
+<div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+  LastName is required
+</div>
 
 <input #email="ngModel" name="email" type="email" id="inputEmail" class="form-control" 
 placeholder="Email address" [(ngModel)]="newUser.email"
 required autofocus pattern=".+@.+">
 
-<p *ngIf="email.touched && email.invalid" class="alert alert-danger">Incorrect Email</p>
+<p [hidden]="email.pristine || email.valid" class="alert alert-danger">Incorrect Email</p>
 
 <input #password="ngModel"  type="password" id="inputPassword" name="password" class="form-control"
-placeholder="Password" [(ngModel)]="newUser.password" required>
+placeholder="Password" [(ngModel)]="newUser.password" 
+required  minlength="8">
+  
+<p [hidden]="password.valid||password.pristine" class="alert alert-danger">Atleast 8 characters long,one number,one character and one special character</p>
 
-<p *ngIf="password.touched && password.invalid" class="alert alert-danger">Password Strength Low</p>
-
-      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-disabled="form.$invalid">Sign up</button>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" [disabled]="!form.form.valid" type="submit" ng-disabled="form.$invalid">Sign up</button>
     </form>
     <!-- /form -->
     <!-- <a href="#" class="forgot-password">
@@ -37,4 +46,9 @@ placeholder="Password" [(ngModel)]="newUser.password" required>
   </div>
   <!-- /card-container -->
 </div>
-<!-- /container -->
+<!-- /container /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/-->
+<!-- Regex should be like this /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,20}/ 
+  (?=.*[A-Za-z]) - Assert a string has at least one Alphabet;
+  (?=.*\d) -Assert a string has at least one number;
+  [A-Za-z\d]{4,20} - Characters (Only numbers and letters) length should
+be between 4 and 20 -->
