@@ -11,15 +11,28 @@ export class UserListComponent implements OnInit {
   date=new Date().toLocaleDateString();
   constructor(private userListService:UserListService,
   private httpClient:HttpClient
-  ) { }
+  ) { 
+    this.reload()
+  }
 
   ngOnInit() {
-    this.userListService.getUserList().subscribe((response)=>{
+  
+    /* this.userListService.getUserList().subscribe((response)=>{
     this.userList=response.user;
       console.log("Response: User",this.userList)
-    })
+    }) */
   }
-removed(user){
-  this.userListService.delet(user).subscribe((response)=>console.log("Deleted User:",response))
-}
+
+  removed(user){
+  this.userListService.delet(user._id).subscribe(data=>console.log("Data:",data))
+  this.reload()  
+} 
+
+ private reload(){
+      this.userListService.getUserList().subscribe((response) => {
+      this.userList = response.user;
+      
+    })
+   console.log("Reloaded  User", this.userList)
+  }
 }

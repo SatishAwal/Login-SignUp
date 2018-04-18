@@ -8,17 +8,19 @@ import { HttpClient } from "../services/http.service"
 export class UserListService {
   private databaseUrl = "http://localhost:3000/users"
   public token: string;
-  constructor(private httpClient: HttpClient
+  constructor(private httpClient: HttpClient,private http:Http
   ) { }
   
   getUserList() {
-    return this.httpClient.get(this.databaseUrl).map((response: Response) =>
+    //console.log(" get Services userList:")
+        return this.httpClient.get(this.databaseUrl).map((response: Response) =>
       response.json()
     )
   }
-  delet(user){
-    return this.httpClient.delete(`${this.databaseUrl}/user._id`).map((response: Response) =>
-      response.json()
-    )
+
+  delet(userId){
+    console.log("Delete userList:", userId)
+    return this.httpClient.delete(`${this.databaseUrl}/${userId}`).map((response:Response)=>response.json())
+
   }
 }

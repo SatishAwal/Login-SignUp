@@ -37,6 +37,8 @@ required  minlength="8">
 <p [hidden]="password.valid||password.pristine" class="alert alert-danger">Atleast 8 characters long,one number,one character and one special character</p>
 
       <button class="btn btn-lg btn-primary btn-block btn-signin" [disabled]="!form.form.valid" type="submit" ng-disabled="form.$invalid">Sign up</button>
+      <p>Already have account</p>  
+      <button class="btn btn-lg btn-primary btn-block btn-signin" routerLink="/login">Sign in</button>
     </form>
     <!-- /form -->
     <!-- <a href="#" class="forgot-password">
