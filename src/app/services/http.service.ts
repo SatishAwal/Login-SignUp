@@ -51,7 +51,6 @@ export class HttpClient {
     delete(url) {
         let headers = new Headers();
         this.createHeader(headers);
-        console.log("fdsvfsdvds",url)
         return this.http.delete(url,{
             headers: headers
         });

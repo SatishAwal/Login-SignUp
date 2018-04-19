@@ -7,10 +7,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AuthenticationService, HttpClient, UserListService} from './services/index';
-import { HomeComponent, LoginComponent, SignupComponent, UserListComponent } from './components/index';
+import {HomeComponent, LoginComponent, SignupComponent, UserListComponent, FooterComponent,
+HeaderComponent } from './components/index';
 
 import {RegistrationGuard,AuthGuard} from './guards/index';
-
 
 @NgModule({
   declarations: [
@@ -18,7 +18,9 @@ import {RegistrationGuard,AuthGuard} from './guards/index';
     LoginComponent,
     HomeComponent,
     SignupComponent,
-    UserListComponent
+    UserListComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, AppRoutingModule
