@@ -7,24 +7,23 @@ import { UserListService,HttpClient} from "../../services/index";
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  userList:any;
-  date=new Date().toLocaleDateString();
-  constructor(private userListService:UserListService,
-  private httpClient:HttpClient
-  ) { }
+    userList:any;
+    date=new Date().toLocaleDateString();
+    
+    constructor(private userListService:UserListService,
+    private httpClient:HttpClient) { }
 
-  ngOnInit() {
-  
-    this.userListService.getUserList().subscribe((response)=>{
-    this.userList=response.user;
+    ngOnInit() {
+      this.userListService.getUserList().subscribe((response)=>{
+      this.userList=response.user;
       console.log("Response: User",this.userList)
-    }) 
-  }
+      }) 
+    }
 
-  removed(user){
-  this.userListService.delet(user._id).subscribe(data=>console.log("Data:",data))
-  this.userList=this.userList.filter((ele)=>ele._id !== user._id)
-} 
+    removed(user){
+      this.userListService.delet(user._id).subscribe(data=>console.log("Data:",data))
+      this.userList=this.userList.filter((ele)=>ele._id !== user._id)
+    } 
 
 
 }

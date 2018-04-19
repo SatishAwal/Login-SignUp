@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output,EventEmitter } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http'
 import * as jwt from "jsonwebtoken";
 import { HttpClient } from "../services/http.service"
@@ -8,6 +8,7 @@ import { HttpClient } from "../services/http.service"
 export class UserListService {
   private databaseUrl = "http://localhost:3000/users"
   public token: string;
+ // @Output() sendUser = new EventEmitter()
   constructor(private httpClient: HttpClient,private http:Http
   ) { }
   
@@ -23,4 +24,8 @@ export class UserListService {
     return this.httpClient.delete(`${this.databaseUrl}/${userId}`).map((response:Response)=>response.json())
 
   }
+
+ /*  sendUser(event){
+    this.emit.
+  } */
 }

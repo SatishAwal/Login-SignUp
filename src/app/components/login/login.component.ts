@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     var loggedInUser=JSON.parse(localStorage.getItem('loggedinUser'));
     if(loggedInUser){
-      this.router.navigate(['/home']);
+      this.router.navigate(['/parent']);
     } else{
       this.authenticationService.logout();
       // get return url from route parameters or default to '/'
@@ -41,7 +41,7 @@ onSubmit(form:NgForm){
         console.log("Response",response)
         if(response.success){
           this.success=true
-        this.router.navigate(['/home']);
+        this.router.navigate(['/parent']);
        }else{
          this.success=false
          form.reset();

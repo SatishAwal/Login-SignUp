@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     var loggedInUser = JSON.parse(localStorage.getItem('loggedinUser'));
     if (loggedInUser) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/parent']);
     } else {
       this.authenticationService.logout();
     }
@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
       console.log("Response", response)
 
       if(response.success){
-        this.router.navigate(['home'])
+        this.router.navigate(['/parent'])
       }else{
         form.reset()
       }
