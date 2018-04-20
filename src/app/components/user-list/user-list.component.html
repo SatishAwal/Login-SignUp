@@ -33,7 +33,7 @@
                   </td>
                   <td>{{date}}</td>
                   <td class="text-center">
-                    <span class="label label-primary">Admin</span>
+                    <span class="label label-primary">{{user.userRole}}</span>
                   </td>
                   <td>
                     <a href="#">{{user.email}}</a>
@@ -45,7 +45,7 @@
                   </button>
                 </td>
                 
-                <td>
+                <td *ngIf="checkAdmin">
                   <button class="btn btn-danger" (click)="removed(user)">
                     <span class="glyphicon glyphicon-trash"></span>
                     <span class="hidden-xs hidden-sm">Delete</span>

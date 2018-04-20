@@ -10,6 +10,9 @@ export class UserListComponent implements OnInit {
     userList:any;
     date=new Date().toLocaleDateString();
     user:any;
+    parseTokenObj: any;
+    checkAdmin:boolean;
+
     constructor(private userListService:UserListService,
     private httpClient:HttpClient) { }
 
@@ -17,6 +20,7 @@ export class UserListComponent implements OnInit {
       this.userListService.getUserList().subscribe((response)=>{
       this.userList=response.user;
       console.log("Response: User",this.userList)
+      this.parseToken()
       }) 
     }
 
@@ -29,4 +33,16 @@ export class UserListComponent implements OnInit {
       console.log("poopusp",user)
       this.user=user
     }
+
+  parseToken() {
+    const token = JSON.parse(localStorage.getItem("loggedInUser"));
+    const status = token.user.userRole.toUpperCase()
+    //console.log("status",status.toUpperCase())
+    if(status==="ADMIN"){
+      this.checkAdmin=true
+    }else{
+      this.checkAdmin=false
+    }
+  }
+    
 }
