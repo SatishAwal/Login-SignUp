@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthenticationService, HttpClient, UserListService} from './services/index';
 import {HomeComponent, LoginComponent, SignupComponent, UserListComponent, FooterComponent,
-HeaderComponent, ParentComponent} from './components/index';
+  HeaderComponent, ParentComponent, ProfileComponent} from './components/index';
 
 import {RegistrationGuard,AuthGuard} from './guards/index';
 
@@ -22,7 +22,8 @@ import {RegistrationGuard,AuthGuard} from './guards/index';
     UserListComponent,
     FooterComponent,
     HeaderComponent,
-    ParentComponent
+    ParentComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, AppRoutingModule

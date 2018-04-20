@@ -9,12 +9,26 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   //Value set from other Component
   tokenExist:boolean
+  parseTokenObj:any;
 
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
+    this.parseToken()
   }
 
+parseToken(){
+  const token = JSON.parse(localStorage.getItem("loggedInUser"));
+  if(token){
+    this.tokenExist=true
+   this.parseTokenObj =token
+   console.log("parseToken:",this.parseTokenObj)
+    return this.parseTokenObj
+  }else{
+    this.tokenExist=false
+  }
+  
+}
 
   logoutClick() {
     this.authenticationService.logout()

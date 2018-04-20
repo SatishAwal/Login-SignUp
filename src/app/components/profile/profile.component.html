@@ -1,0 +1,40 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title" id="myModalLabel">More About {{user?.firstName}}</h4>
+      </div>
+      <div class="modal-body">
+
+        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" name="aboutme" width="140" height="140" border="0" class="img-circle">
+
+        <h3 class="media-heading">{{user?.firstName+user?.lastName}}
+          <small>USA</small>
+        </h3>
+        <span>
+          <strong>Skills: </strong>
+        </span>
+        <span class="label label-warning">HTML5/CSS</span>
+        <span class="label label-info">Adobe CS 5.5</span>
+        <span class="label label-info">Microsoft Office</span>
+        <span class="label label-success">Windows XP, Vista, 8</span>
+
+        <hr>
+
+        <p class="text-left">
+          <strong>Bio: </strong>
+          <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel
+          tellus.
+        </p>
+        <br>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Email Him</button>
+
+      </div>
+    </div>
+  </div>
+</div>

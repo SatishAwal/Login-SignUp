@@ -9,7 +9,7 @@ import { UserListService,HttpClient} from "../../services/index";
 export class UserListComponent implements OnInit {
     userList:any;
     date=new Date().toLocaleDateString();
-    
+    user:any;
     constructor(private userListService:UserListService,
     private httpClient:HttpClient) { }
 
@@ -25,5 +25,8 @@ export class UserListComponent implements OnInit {
       this.userList=this.userList.filter((ele)=>ele._id !== user._id)
     } 
 
-
+    pop(user){
+      console.log("poopusp",user)
+      this.user=user
+    }
 }

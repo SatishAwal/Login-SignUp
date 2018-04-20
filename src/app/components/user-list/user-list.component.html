@@ -28,7 +28,7 @@
                 <tr *ngFor="let user of userList">
                   <td>
                     <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
-                    <a href="#" class="user-link">{{user.firstName+user.lastName}}</a>
+                    <a href="#aboutModal" data-toggle="modal" data-target="#myModal" class="user-link" (click)="pop(user)">{{user.firstName+user.lastName}}</a>
                     <span class="user-subhead">Member</span>
                   </td>
                   <td>{{date}}</td>
@@ -51,9 +51,8 @@
                     <span class="hidden-xs hidden-sm">Delete</span>
                   </button>
                 </td>
-                  
+                <!-- Modal --> 
                 </tr>
-
               </tbody>
             </table>
           </div>
@@ -61,4 +60,7 @@
       </div>
     </div>
   </div>
+
+   <app-profile *ngIf="user" [user]="user"></app-profile>
 </div>
+

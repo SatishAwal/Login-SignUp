@@ -23,6 +23,7 @@ export class SignupComponent implements OnInit {
   private router:Router) { }
 
   ngOnInit() {
+    //Converts string to Object
     var loggedInUser = JSON.parse(localStorage.getItem('loggedinUser'));
     if (loggedInUser) {
       this.router.navigate(['/parent']);
